@@ -1,0 +1,30 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Asmeniniai Duomenys";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>Jūsų paskyroje saugomi asmeniniai duomenys kuriuos suteikėte. Čia galite parsisiųsti arba ištrinti duomenis.</p>
+        <p>
+            <strong>Po duomenų ištrynimo, jų atstatyti nebus įmanoma.</strong>
+        </p>
+        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+            <button class="btn btn-success btn-block" type="submit">Kokie duoemnys?</button>
+        </form>
+        <p>
+            <a id="delete" asp-page="" class="btn btn-danger btn-block ">Išsiregistruoti </a>
+        </p>
+       
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+    @*DeletePersonalData*@
+    @*Įrašyti į asp-page*@

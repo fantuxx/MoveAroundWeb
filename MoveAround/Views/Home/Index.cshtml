@@ -1,0 +1,44 @@
+﻿@{
+    @using Microsoft.AspNetCore.Identity
+    @inject SignInManager<IdentityUser> SignInManager
+    @inject UserManager<IdentityUser> UserManager
+
+
+    ViewData["Title"] = "Home Page";
+    Layout = "_IndexLayout";
+
+}
+
+<section id="AboutDriver">
+    <div class="container-fluid height-80 text-center bg-tamsus">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="display-3  text-Nobel pt-4">Vežėjas</p>
+                <div class="title-underline bg-danger"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="AboutCustomer">
+    <div class="container-fluid height-80 text-center bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="display-3 text-MineShaft pt-4">Užsakovas</p>
+                <div class="title-underline bg-danger"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="AboutAdmin">
+    <div class="container-fluid height-80 text-center bg-danger">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="display-3 pt-4">Admin</p>
+                <div class="title-underline bg-danger"></div>
+            </div>
+        </div>
+    </div>
+</section>
+

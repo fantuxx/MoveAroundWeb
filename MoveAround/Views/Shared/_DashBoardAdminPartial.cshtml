@@ -1,0 +1,25 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+    {
+        <li>
+              <p class="text-danger  m-0  p-0">Administravimas</p> 
+        </li>
+        <li>
+            <a asp-controller="EmailMessages" asp-action="Index" title="Žinutės"> Vartotojų Žinutės  </a>
+        </li>
+        <li>
+            <a asp-controller="addToRoles" asp-action="Index" title="Vartotojai"> Vartotojai  </a>
+
+        </li>
+        <li>
+            <a asp-controller="addToRoles" asp-action="Index" title="Administravimas"> Admin  </a>
+
+        </li>
+    }
+}

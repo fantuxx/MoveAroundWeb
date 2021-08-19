@@ -1,0 +1,56 @@
+﻿@model MoveAround.Models.EmailMessage
+
+@{
+    ViewData["Title"] = "Išsamiau";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<div>
+    <h4>Pranešimas</h4>
+    <hr />
+    <dl class="row text-sviesus-3">
+        <dt class="col-sm-2">
+            Gauta
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateCreated
+        </dd>
+        <dt class="col-sm-2">
+            Vardas
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            Tema
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Subject
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+        <dt class="col-sm-2">
+            Žinutė
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+    </dl>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="d-flex justify-content-around pb-5">
+
+            <div class="col4" title="Gįžti">   <a asp-action="Index"> <i class=" fas fa-reply fa-2x text-sviesus-3 ">   </i></a></div>
+
+            <div class="col4" title="Ištrinti"> <a asp-action="Delete" asp-route-id="@Model.id"><i class="fab far fa-trash-alt fa-2x text-sviesus-3 "></i></a></div>
+        </div>
+    </div>
+    <div class="col-md-4"  ></div>
+</div>

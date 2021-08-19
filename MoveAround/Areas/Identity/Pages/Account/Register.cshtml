@@ -1,0 +1,76 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AccManagement";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4"> </div>
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h3 class="text-secondary pt-3 text-uppercase text-center">naujas vartotojas:</h3>
+            <div class="title-underline bg-danger"></div>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label class="text-black" asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="text-black" asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="py-4">
+                <button type="submit" class="btn btn-danger btn-block">Registruotis</button>
+            </div>
+            <div class="form-group text-danger">
+                <p>
+                    <a asp-page="./Login">Jau turiu paskyrą</a>
+                </p>
+            </div>
+
+        </form>
+        <section>
+            <h4 class="pt-3 text-sviesus-1 text-uppercase"> <strong>Registruotis Naudojant:</strong> </h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div class="">
+                        <p>
+                            Prieš paleidžiant live įdėsiu Google Facebook ir galt Twitter.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+    
+</div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Move-Around</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/index.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/63d47c7edd.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="index-bg height-100">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom border-dark box-shadow mb-3">
+                <div class="container ">
+                    <a class="navbar-brand" asp-area="" asp-controller="AppUSers" asp-action="Index"> <h3 class=" text-danger text-uppercase font-italic">Move-<strong class="text-sviesus-3">Around</strong></h3></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse  rounded opacity-4">
+                        <partial name="_LoginPartial" />
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-light "  asp-area="" asp-controller="Home" asp-action="Index">Pagrindinis</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class=" opacity-4 px-3 height-100 ">
+            @RenderBody()
+        </div>
+        <div class="container-fluid height-50  bg-tamsus text-sviesus-1">
+            <div class="row">
+                <div class="col-md-4  pt-5 pl-5">
+                    <h3 class=" text-danger text-uppercase font-italic">Move-<strong class="text-sviesus-1">Around</strong></h3>
+                    <br />
+                    <a class="btn btn-danger btn-block" asp-controller="EmailMessages" asp-action="Create">Parašykite mums</a>
+                </div>
+                <div class="col-md-4 pt-5 pl-5">
+                    <p class="font-weight-bold pt-5"> <strong>PASLAUGOS:</strong></p>
+                    <a class="btn btn-dark btn-block" asp-controller="Home" asp-action="About">Vežame</a>
+                    <a class="btn btn-dark btn-block" asp-controller="Home" asp-action="About">Ieškome</a>
+                    <a class="btn btn-dark btn-block" asp-controller="Home" asp-action="About">Spredžiame</a>
+
+                </div>
+                <div class="col-md-4 pt-5 ">
+                    <div class=" ">
+                        <p class="font-weight-bold pt-5 text-danger"> <strong>KONTAKTAI:</strong></p>
+                        <p class=" text-secondary ">Lietuva, Joniškis, Medžiotojų g. 22, LT-85845 </p>
+                        <a href="tel:+37064597201"> <p class=" text-secondary  " typeof="Phone">Tel: +370 645 97205</p></a>
+                        <a href="mailto:info@move-around.lt"> <p class=" text-secondary ">  e-mail: info@move-around.lt</p></a>
+                        <p class="font-weight-bold text-center"> <strong>TAIP PAT:</strong></p>
+                        <div class="d-flex justify-content-around pb-5">
+                            <div class="col4"> <a href="#"><i class="fab fa-facebook fa-3x text-secondary "></i></a></div>
+                            <div class="col4"> <a href="#"><i class="fab fa-twitter fa-3x text-secondary "></i></a></div>
+                            <div class="col4"> <a href="#"><i class="fab fa-google fa-3x text-secondary "></i></a></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script src="~/js/JavaScript.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/63d47c7edd.js" crossorigin="anonymous"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

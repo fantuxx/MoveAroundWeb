@@ -1,0 +1,104 @@
+﻿@model MoveAround.Models.Order
+
+@{
+    ViewData["Title"] = "Trinti";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="container-fluid bg-tamsus py-2 my-2">
+    <h2 class=" text-light text-center">Trinti</h2>
+</div>
+
+<h3>Ar tikrai norite ištrinti šį užsakymą?</h3>
+<div class=" container-fluid">
+    
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FromAddress)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FromAddress)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FDate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FDate)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ToAddress)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ToAddress)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.TDate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TDate)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Tipas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Tipas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PakrovimoTipas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PakrovimoTipas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Svoris)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Svoris)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Turis)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Turis)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Ilgis)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Ilgis)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PaleciuSk)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaleciuSk)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Temperatura)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PapildomaInfo)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PapildomaInfo)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Kaina)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Kaina)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OrderId" />
+        <input type="submit" value="Trinti" class="btn btn-danger btn-block" /> 
+        <a class="btn btn-dark btn-block mb-3" asp-action="Index">Grįžti į sąrašą</a>
+    </form>
+</div>

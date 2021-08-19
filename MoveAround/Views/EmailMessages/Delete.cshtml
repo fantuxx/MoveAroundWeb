@@ -1,0 +1,53 @@
+﻿@model MoveAround.Models.EmailMessage
+
+@{
+    ViewData["Title"] = "Naikinti";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+
+<h3>Ar tikrtai norite ištrinti?</h3>
+<div>
+
+    <hr />
+    <dl class="row text-sviesus-3">
+        <dt class="col-sm-2">
+            Gauta
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateCreated
+        </dd>
+        <dt class="col-sm-2">
+            Vardas
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            Tema
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Subject
+        </dd>
+        <dt class="col-sm-2">
+            E-mail
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+        <dt class="col-sm-2">
+            Žinutė
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Trinti" class="btn btn-danger btn-block" /> 
+        <a  class="btn btn-dark btn-block" asp-action="Index">Grįžti</a>
+    </form>
+
+</div>

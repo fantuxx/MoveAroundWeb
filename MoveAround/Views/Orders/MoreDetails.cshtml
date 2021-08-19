@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewData["Title"] = "Išsami informacija apie krovinį";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+@model MoveAround.Models.Order
+
+
+<div class="container-fluid bg-tamsus py-2 my-2">
+    <h2 class=" text-light text-center">Išsami informacija apie krovinį</h2>
+</div>
+
+<div class=" container">
+
+    <hr />
+    <dl class="row">
+
+        <dt class="col-12 text-center h3"> Apie užsakymą:</dt>
+
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FromAddress)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FromAddress)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FDate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FDate)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ToAddress)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ToAddress)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.TDate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TDate)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Tipas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Tipas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PakrovimoTipas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PakrovimoTipas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Svoris)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Svoris)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Turis)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Turis)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Ilgis)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Ilgis)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PaleciuSk)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaleciuSk)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Temperatura)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PapildomaInfo)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PapildomaInfo)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Kaina)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Kaina)
+        </dd>
+        <dt class="col-12 text-center h3"> Apie užsakovą:</dt>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.BuisnessName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.BuisnessName)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.BuisnessEmail)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.BuisnessEmail)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.PhoneNumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.PhoneNumber)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.AccountNumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.AccountNumber)
+        </dd>
+
+        @* Čia galiem įdėti ir reitingus ir atsliepimus *@
+
+    </dl>
+</div>
+<div class="mb-2">
+    <a class="btn btn-danger btn-block" asp-action="All">Grįžti į sąrašą</a>
+</div>
+
+<div class="mb-2">
+    @* Čia pakeisti *@
+    <a class="btn btn-dark btn-block" asp-action="All">Susiekti su užsakovu</a> 
+</div>
+
+<div class="mb-2">
+    @* Čia pakeisti *@
+    <a class="btn btn-info btn-block" asp-action="All">Pasirinkti užsakymą</a>
+</div>
+
+
+
+

@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "library": "jquery.googlemap@1.5.1",
+      "destination": "wwwroot/lib/jquery.googlemap/"
+    },
+    {
+      "library": "colresizable@1.6.0",
+      "destination": "wwwroot/lib/colresizable/"
+    },
+    {
+      "library": "datatables.net-colreorder-bs4@1.5.2",
+      "destination": "wwwroot/lib/datatables.net-colreorder-bs4/"
+    },
+    {
+      "library": "datatables.net-colreorder@1.5.2",
+      "destination": "wwwroot/lib/datatables.net-colreorder/"
+    }
+  ]
+}

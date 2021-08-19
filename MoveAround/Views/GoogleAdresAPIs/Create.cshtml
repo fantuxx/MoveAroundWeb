@@ -1,0 +1,94 @@
+﻿@model MoveAround.Services.GoogleAdresAPI
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBV2V0e5M9dZoKjWYRLdOI1Ho2-nBVJGqA&callback=initAutocomplete&libraries=places&v=weekly"
+        defer></script>
+
+
+
+<hr />
+<div class="container">
+
+    <div id="locationField" class="pb-4">
+        <input id="autocomplete" class="w-50 form-control "
+               placeholder="Veskitę adresą"
+               onFocus="geolocate()"
+               type="text" />
+        <button type="button" class="btn btn-dark" data-toggle="collapse" data-target="#is_adresai">Visas adresas</button>
+    </div>  
+
+    <div class="collapse" id="is_adresai">
+        <table id="address">
+            <tr>
+                <td class="label">Gatvė </td>
+                <td class="wideField" colspan="2">
+                    <input class="field" id="route" disabled="true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Namo nr.: </td>
+                <td class="slimField">
+                    <input class="field" id="street_number" disabled="true" />
+                </td>
+
+            </tr>
+            <tr>
+                <td class="label">Miestas</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="locality" disabled="true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Apskritis</td>
+                <td class="slimField">
+                    <input class="field"
+                           id="administrative_area_level_1"
+                           disabled="true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Pašto kodas</td>
+                <td class="wideField">
+                    <input class="field" id="postal_code" disabled="true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Šalis</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="country" disabled="true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label">latitude</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="lat" />
+                </td>
+            </tr>
+            <tr>
+                <td class="longtitude">lon</td>
+                <td class="wideField" colspan="3">
+                    <input class="field" id="lon"  />
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts{
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery.googlemap/jquery.googlemap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBV2V0e5M9dZoKjWYRLdOI1Ho2-nBVJGqA&callback=initAutocomplete&libraries=places&v=weekly"
+            defer></script>
+    <script src="~/js/LoadAdresses.js"></script>
+}

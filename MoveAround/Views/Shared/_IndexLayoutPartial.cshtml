@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@if (!SignInManager.IsSignedIn(User))
+{
+
+    <div class="row h-100 justify-content-center   ">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <a class=" btn btn-outline-danger btn-lg m-2 text-capitalize btn-block text-lg-center " asp-area="Identity" asp-page="/Account/Register">Registruotis</a>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <a class="nav-link btn btn-danger btn-lg m-2 text-capitalize btn-block text-lg-center" asp-area="Identity" asp-page="/Account/Login">Prisijungti</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+else
+{
+    if ((User.IsInRole("Users")))
+    {
+        <div class="container-fluid ">
+            <div class="col ">
+                <h1 class="text-danger text-uppercase font-weight-bold font-italic">
+                    <strong>Kol kas tuščia <i class="far fa-frown 7x text-danger text font-weight-bold"></i></strong>
+                    <small class="text-secondary">Prašome:</small>
+                </h1>
+                <p>
+                    Užpildykite vartotojo duomenų anketą. Duomenys reikalingi <a asp-controller="Home" asp-action="Privacy"> šiesms tikslams</a>
+
+                </p>
+                <a class="btn btn-outline-success btn-lg m-2 text-capitalize" asp-area="" asp-controller="AppUsers" asp-action="Create">Pildom!</a>
+                <a class="btn btn-outline-danger btn-lg m-2 text-capitalize" asp-area="" asp-controller="Home" asp-action="Index">Nenoriu!</a>
+            </div>
+        </div>
+    }
+    else{
+    <div class=" container">
+        <div class="row">
+            <div class="col-md-6 text-center py-2">
+                <a class="btn btn-danger w-100 " asp-controller="Transports" asp-action="Index"> <h2> Pasiūlyti transportą </h2>      </a>
+            </div>
+            <div class="col-md-6 text-center py-2">
+                <a class="btn btn-danger w-100" asp-controller="Transports" asp-action="All"> <h2> Ieškoti transporto </h2>    </a>
+            </div>
+        </div>
+
+        <div class="row pt-5">
+            <div class="col-md-6 text-center py-2 ">
+                <a class="btn btn-outline-danger w-100" asp-controller="Orders" asp-action="Create"> <h2> Pasiūlyti Krovinį </h2>      </a>
+            </div>
+            <div class="col-md-6 text-center py-2">
+                <a class="btn btn-outline-danger w-100" asp-controller="Orders" asp-action="All"> <h2> Ieškoti Krovinio </h2>    </a>
+            </div>
+        </div>
+    </div>
+        }
+    }
+}

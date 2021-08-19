@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MoveAround.Models.EmailMessage>
+
+@{
+    ViewData["Title"] = "Visos žinutės";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<div class="container-fluid bg-tamsus py-2 my-2">
+    <h2 class=" text-light text-center">Vartotojų žinutės</h2>
+</div>
+
+
+<table class="table table-responsive-md">
+
+    <thead>
+        <tr class="text-sviesus-3">
+            <th scope="col"> <p> <strong> Vardas</strong></p> </th>
+
+            <th scope="col"><p> <strong> E-mail</strong></p></th>
+
+            <th scope="col"> <p> <strong> Tema</strong></p> </th>
+
+            <th scope="col"> <p> <strong> Žinutė</strong></p></th>
+
+            <th scope="col">  <p> <strong> Parinkyts</strong></p></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-sviesus-3">
+                <th scope="row">@Html.DisplayFor(modelItem => item.Name)</th>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    <div class="d-flex justify-content-around pb-5">
+                        <div class="col4"> <a asp-action="Delete" asp-route-id="@item.id"> <i class="fas fa-redo fa-2x text-sviesus-3 "></i></a></div>
+                        <div class="col4"> <a asp-action="Details" asp-route-id="@item.id"><i class="fas fa-info-circle fa-2x text-sviesus-3 "></i></a></div>
+                        <div class="col4"> <a asp-action="Delete" asp-route-id="@item.id"><i class="fab far fa-trash-alt fa-2x text-sviesus-3 "></i></a></div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

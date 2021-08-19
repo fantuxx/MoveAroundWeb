@@ -1,0 +1,184 @@
+﻿@model MoveAround.Models.Transport
+
+@{
+    ViewData["Title"] = "Redaguoti Transportą";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="container-fluid bg-tamsus py-2 my-2">
+    <h2 class=" text-light text-center">Redaguoti Transportą</h2>
+</div>
+    <form asp-action="Edit">
+
+        <div class="row">
+            <div class="col-md-6 border ">
+                <h4 class="text-sviesus-4 text-center "> Būtini duomenys  </h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group row">
+                    <div class="form-group col-10">
+                        <label asp-for="FullFromLocation" class="control-label"></label>
+                        <input id="TrasportLocation" class="form-control"
+                               placeholder="Pasikrovimo adresas.."
+                               onFocus="geolocate()"
+                               type="text" />
+                    </div>
+
+                    <button type="button" class="btn btn-link text-sviesus-3 " data-toggle="collapse" data-target="#is_adresai"><i class="fas fa-caret-down fa-3x"></i></button>
+                    <div class="collapse " id="is_adresai">
+                        <table id="address">
+                            <tr>
+                                <td> <label asp-for="LocationFromCountry"> </label></td>
+                                <td class="wideField" colspan="3">
+                                    <input asp-for="LocationFromCountry" class="field" id="country" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label asp-for="LocationFromCity"> </label></td>
+                                <td class="wideField" colspan="3">
+                                    <input asp-for="LocationFromCity" class="field" id="locality" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label asp-for="LocationFromDistrict"> </label></td>
+                                <td class="slimField">
+                                    <input asp-for="LocationFromDistrict" class="field" id="administrative_area_level_1" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label asp-for="LocationFromStreet"> </label> </td>
+                                <td class="wideField" colspan="2">
+                                    <input asp-for="LocationFromStreet" class="field" id="route" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label asp-for="LocationFromNumber"> </label></td>
+                                <td class="slimField">
+                                    <input asp-for="LocationFromNumber" class="field" id="street_number" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label asp-for="LocationFromZipCode"> </label></td>
+                                <td class="wideField">
+                                    <input asp-for="LocationFromZipCode" class="field" id="postal_code" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td hidden> <label asp-for="LocationFromLatitude"> </label></td>
+                                <td hidden class="wideField" colspan="3">
+                                    <input asp-for="LocationFromLatitude" class="field" id="lat" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td hidden> <label asp-for="LocationFromLongitude"> </label></td>
+                                <td hidden class="wideField" colspan="3">
+                                    <input asp-for="LocationFromLongitude" class="field" id="lon" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="form-group col-11 px-3" id=''>
+                        <label asp-for="GalimaNuoData" class="control-label"></label>
+                        <input type='date' asp-for="GalimaNuoData" class="form-control" />
+                        <span asp-validation-for="GalimaNuoData" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-12 ">
+                        <label asp-for="PakrovimoTipas" class="control-label"></label>
+                        <select asp-for="PakrovimoTipas" asp-items="Model.PakrovimoTipai" class="form-control">
+                        </select>
+                    </div>
+                    <div class="form-group col-9 ">
+                        <label asp-for="SunkvezimioTipas" class="control-label"></label>
+                        <select asp-for="SunkvezimioTipas" asp-items="Model.SunkvezimioTipai" class="form-control">
+                        </select>
+                    </div>
+
+                    <div class="form-group col-3">
+                        <label asp-for="TransportoSkaicius" class="control-label"></label>
+                        <input asp-for="TransportoSkaicius" class="form-control" />
+                        <span asp-validation-for="TransportoSkaicius" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <button type="button" class="btn btn-link text-sviesus-3 btn-block " data-toggle="collapse" data-target="#daugiauIndfo"><p class="text-primary text-center ">    Papildomi duomenys ..</p></button>
+                <div class="collapse" id="daugiauIndfo">
+                    <div class="form-group col-3">
+                        <label asp-for="Temperatura" class="control-label"></label>
+                        <input type="checkbox" asp-for="Temperatura" class="form-control" />
+                        <span asp-validation-for="Temperatura" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PaleciuSk" class="control-label"></label> <span id="result"></span>
+                        <input id="SvorisInput" type="range" value="0" min="0" max="30" step="1" oninput="change();" asp-for="PaleciuSk" class="form-control" />
+                        <script>
+                            var result = document.getElementById("result");
+                            var mine = document.getElementById("SvorisInput");
+                            function change() {
+                                result.innerText = mine.value;
+                            }
+                        </script>
+                        <span asp-validation-for="Svoris" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Turis" class="control-label"></label>
+                        <input asp-for="Turis" class="form-control" />
+                        <span asp-validation-for="Turis" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="TransportId" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Ilgis" class="control-label"></label>
+                        <input asp-for="Ilgis" class="form-control" />
+                        <span asp-validation-for="Ilgis" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Svoris" class="control-label"></label>
+                        <input asp-for="Svoris" class="form-control" />
+                        <span asp-validation-for="Svoris" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+
+                        <select asp-for="UzsakovasId" hidden class="form-control" asp-items="ViewBag.UzsakovasId"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 border">
+                <div class="form-group">
+                    <label asp-for="Kaina" class="control-label"></label>
+                    <input asp-for="Kaina" class="form-control" />
+                    <span asp-validation-for="Kaina" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PapildomaInfo" class="control-label"></label>
+                    <textarea asp-for="PapildomaInfo" class="form-control align-text-top"></textarea>
+                    <span asp-validation-for="PapildomaInfo" class="text-danger"></span>
+                </div>
+                <span>
+                    <span asp-validation-for="LocationToCountry" class="text-danger"> </span><br />
+                    <span asp-validation-for="LocationToDistrict" class="text-danger"></span><br />
+                    <span asp-validation-for="LocationFromCity" class="text-danger"></span><br />
+                    <span asp-validation-for="LocationFromStreet" class="text-danger"></span><br />
+                    <span asp-validation-for="LocationFromNumber" class="text-danger"> </span><br />
+                </span>
+
+            </div>
+        </div>
+        <div class="form-group mt-2">
+            <input type="submit" value="Atnaujinti" class="btn btn-danger btn-block" />
+        </div>
+        <div>
+            <a class="mb-2 btn btn-dark btn-block" asp-action="Index">Grįžti į sąrašą</a>
+        </div>
+
+
+    </form>
+
+
+
+

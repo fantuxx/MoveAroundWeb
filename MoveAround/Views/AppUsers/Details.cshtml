@@ -1,0 +1,104 @@
+﻿@model MoveAround.Models.AppUser
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AccManagement.cshtml";
+}
+
+<h1>Details</h1>
+
+
+<div>
+    <div>
+        <h4>AppUser</h4>
+        <hr />
+        <dl class="row text-white">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IdentityUserId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IdentityUserId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Tipas)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Tipas)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AccountNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AddressCity)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AddressCity)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AddressGatveNr)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AddressGatveNr)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BuisnessName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BuisnessName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BuisnessCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BuisnessCode)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PVM)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PVM)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BuisnesAdressCity)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BuisnesAdressCity)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BuisnesAdressStreet)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BuisnesAdressStreet)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EstablishedDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EstablishedDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BuisnessEmail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BuisnessEmail)
+            </dd>
+        </dl>
+    </div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

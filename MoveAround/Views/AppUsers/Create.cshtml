@@ -1,0 +1,107 @@
+﻿@model MoveAround.Models.AppUser
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1 class="text-center text-sviesus-3 text-uppercase">Papildomi duomenys </h1>
+
+
+<hr />
+
+<form asp-action="Create">
+    <div class="container">
+        <div asp-validation-summary="ModelOnly" class="text-sviesus-3"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-sviesus-3 text-uppercase text-center">apie jus:</h3>
+                <a asp-controller="Home" asp-action="About"><i class="fas fa-info text-info" title="Kas tai?"></i></a>
+                <label asp-for="Tipas" class="control-label"> </label>
+                <div class="form-group ">
+                    <select asp-for="Tipas" asp-items="Model.Tipai" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a asp-controller="Home" asp-action="About"><i class="fas fa-info text-info" title="Kas tai?"></i></a>
+                    <label asp-for="AccountNumber" class="control-label"></label>
+                    <input asp-for="AccountNumber" class="form-control" />
+                    <span asp-validation-for="AccountNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressCity" class="control-label"></label>
+                    <input asp-for="AddressCity" class="form-control" />
+                    <span asp-validation-for="AddressCity" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AddressGatveNr" class="control-label"></label>
+                    <input asp-for="AddressGatveNr" class="form-control" />
+                    <span asp-validation-for="AddressGatveNr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="text-sviesus-3 text-uppercase text-center">apie jūsų verslą</h3>
+                <div class="form-group">
+                    <label asp-for="BuisnessName" class="control-label"></label>
+                    <input asp-for="BuisnessName" class="form-control" />
+                    <span asp-validation-for="BuisnessName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BuisnessCode" class="control-label"></label>
+                    <input asp-for="BuisnessCode" class="form-control" />
+                    <span asp-validation-for="BuisnessCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BuisnessEmail" class="control-label"></label>
+                    <input asp-for="BuisnessEmail" class="form-control" />
+                    <span asp-validation-for="BuisnessEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a asp-controller="Home" asp-action="About"><i class="fas fa-info text-info"title="Kas tai?"></i></a>
+                    <label asp-for="PVM" class="control-label"></label>
+                    <input asp-for="PVM" class="form-control" />
+                    <span asp-validation-for="PVM" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BuisnesAdressCity" class="control-label"></label>
+                    <input asp-for="BuisnesAdressCity" class="form-control" />
+                    <span asp-validation-for="BuisnesAdressCity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BuisnesAdressStreet" class="control-label"></label>
+                    <input asp-for="BuisnesAdressStreet" class="form-control" />
+                    <span asp-validation-for="BuisnesAdressStreet" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstablishedDate" class="control-label"></label>
+                    <input asp-for="EstablishedDate" class="form-control" />
+                    <span asp-validation-for="EstablishedDate" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Atrodo Gerai!" class="btn btn-outline-dark btn-block " />
+        </div>
+    </div>
+</form>
+
+

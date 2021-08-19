@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MoveAround.Models.AppUser>
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Pagrindinis";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@{ if ((User.IsInRole("Users")))
+    {
+        <div class="container text-center">
+            <div class="row height-100 align-items-center">
+                <div class="col align-items-center">
+                    <h1 class="text-danger text-uppercase font-weight-bold font-italic">
+                        <strong>Sveiki, Kol dar nepradėjote,</strong>
+                        <small class="text-secondary">Prašome:</small>
+                    </h1>
+                    <p class="text-center">
+                        Užpildyti vartotojo duomenų anketą. Duomenys reikalingi<a asp-controller="Home" asp-action="Privacy"> šiesms tikslams</a>
+                    </p>
+                    <a class="btn btn-outline-success btn-lg m-2 text-capitalize" asp-area="" asp-controller="AppUsers" asp-action="Create">Pildom!</a>
+                    <a class="btn btn-outline-danger btn-lg m-2 text-capitalize" asp-area="" asp-controller="Home" asp-action="Index">Nenoriu!</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="display-4 text-center">Biznio logika</p>
+    }
+
+}
+
+
+

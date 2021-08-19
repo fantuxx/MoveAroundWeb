@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Move-Around</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/63d47c7edd.js" crossorigin="anonymous"></script>
+    <link href="~/css/Dashboard.css" rel="stylesheet" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap.min.css" />
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <!--date range picker-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!--fixed header-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" />
+
+
+
+    <!--Colvis css-->
+    <link href="~/css/ColvisStyle/ColVis.css" rel="stylesheet" />
+    <link href="~/css/ColvisStyle/ColVisjqueryUi.css" rel="stylesheet" />
+    <!--buttons css reikalingas labai-->
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <div class="bg-danger" style="width:200px" >
+                        <a class="text-light pl-3 " asp-controller="Home" asp-action="Index"><strong> Pagrindinis </strong></a>
+                    </div>
+                </li>
+                <li>
+                    <p class="text-danger  m-0  p-0">Sistema</p>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Valdymo skydas</a>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Užduotys</a>
+                </li>
+                <li>
+                    <a asp-controller="Transports" asp-action="All">Transportas</a>
+                </li>
+                <li>
+                    <a asp-controller="Orders" asp-action="All">Kroviniai</a>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Skundai</a>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Kontaktai</a>
+                </li>
+                <li>
+                    <p class="text-danger  m-0  p-0">Vartotojas</p>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Įsipareigojimai</a>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Atsiskaitymai</a>
+                </li>
+                <li>
+                    <a asp-controller="AppUsers" asp-action="Index">Statistika</a>
+                </li>
+
+                <li>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Vartotojo nuostatos"> Profilis  </a>
+                </li>
+                <partial name="_DashBoardAdminPartial" />
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow bg-tamsus p-0 m-0 ">
+                    <div class="container-fluid " style="height:60px;">
+                        <a href="#menu-toggle" class="logout-icon ml-3 btn btn-default icon" id="menu-toggle"><i class="fas fa-bars text-light fa-2x icon"></i></a>
+                        <a class="navbar-brand" asp-action="Index" asp-controller="AppUsers"> <h3 class=" text-danger text-uppercase font-italic">Move-<strong class="text-sviesus-1">Around</strong></h3></a>
+
+                        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse text-white ">
+                            <partial name="_LoginPartial" />
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+
+                                </li>
+
+                            </ul>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fas fa-user-circle text-white fas-1x "></i></span>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            <div class="container-fluid  height-100">
+                @RenderBody()
+            </div>
+            <div class="container-fluid height-50  bg-tamsus text-sviesus-1">
+                <div class="row">
+                    <div class="col-md-4  pt-5 pl-5">
+                        <h3 class=" text-danger text-uppercase font-italic">Move-<strong class="text-sviesus-1">Around</strong></h3>
+                        <br />
+                        <a class="btn btn-danger btn-block" asp-controller="EmailMessages" asp-action="Create">Parašykite mums</a>
+                    </div>
+                    <div class="col-md-4 pt-5 pl-5">
+                        <p class="font-weight-bold pt-5"> <strong>PASLAUGOS:</strong></p>
+                        <a class="btn btn-dark btn-block" asp-controller="Home" asp-action="About">Vežame</a>
+                        <a class="btn btn-dark btn-block" asp-controller="Home" asp-action="About">Ieškome</a>
+                        <a class="btn btn-dark btn-block" asp-controller="Home" asp-action="About">Spredžiame</a>
+
+                    </div>
+                    <div class="col-md-4 pt-5 ">
+                        <div class=" ">
+                            <p class="font-weight-bold pt-5 text-danger"> <strong>KONTAKTAI:</strong></p>
+                            <p class=" text-secondary ">Lietuva, Joniškis, Medžiotojų g. 22, LT-85845 </p>
+                            <a href="tel:+37064597201"> <p class=" text-secondary  " typeof="Phone">Tel: +370 645 97205</p></a>
+                            <a href="mailto:info@move-around.lt"> <p class=" text-secondary ">  e-mail: info@move-around.lt</p></a>
+                            <p class="font-weight-bold text-center"> <strong>TAIP PAT:</strong></p>
+                            <div class="d-flex justify-content-around pb-5">
+                                <div class="col4"> <a href="#"><i class="fab fa-facebook fa-3x text-secondary "></i></a></div>
+                                <div class="col4"> <a href="#"><i class="fab fa-twitter fa-3x text-secondary "></i></a></div>
+                                <div class="col4"> <a href="#"><i class="fab fa-google fa-3x text-secondary "></i></a></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/JavaScript.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/63d47c7edd.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+    <!-- jQuery JS -->
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+
+    <!--Bootstrap JS -->
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <!--REsize Cols -->
+    <script src="~/js/ColResize.js"></script>
+    <!--trns.js-->
+    <!-- datatables JS -->
+    <script src="~/js/ColreorderAndREsiz.js"></script>
+
+
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
+    <script src=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script>
+
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

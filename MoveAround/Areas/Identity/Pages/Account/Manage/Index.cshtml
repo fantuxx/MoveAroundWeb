@@ -1,0 +1,120 @@
+﻿@page
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Vartotojo duomenys";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+
+
+}
+
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+@{ if (!(User.IsInRole("Users"))) //jeigu vartotojas nera User roleje
+    {
+        <form id="profile-form" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <h2 class=" text-sviesus-1">Apie jus:</h2>
+                        <p class="text-sviesus-2">Jūsų rolės:</p>
+                        @{if (Model.UserRoles.Count > 0)
+                            {
+                                for (int i = 0; i < Model.UserRoles.Count; i++)
+                                {
+                                    <a class=" btn btn-outline-info btn-md  text-capitalize text-sm-center " asp-controller="Home" asp-action="About">@Model.UserRoles[i].ToString()</a>
+                                }
+                            }
+                        }
+                        <a class=" btn btn-outline-info btn small" title="Pridėti dugiau rolių" asp-controller="AppUser" asp-action="AddMoreRoles"> <i class="fas fa-plus t"></i></a>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Username"></label>
+                        <input asp-for="Username" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.AccountNumber"></label>
+                        <input asp-for="AppUser.AccountNumber" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="AppUser.PhoneNumber"></label>
+                        <input asp-for="AppUser.PhoneNumber" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.AddressCity"></label>
+                        <input asp-for="AppUser.AddressCity" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.AddressGatveNr"></label>
+                        <input asp-for="AppUser.AddressGatveNr" class="form-control" />
+                    </div>
+
+
+
+                </div>
+                <div class="col-md-6">
+                    <h2 class=" text-sviesus-1">Apie Įmonę:</h2>
+
+                    <div class="form-group">
+                        <label asp-for="AppUser.BuisnessEmail"></label>
+                        <input asp-for="AppUser.BuisnessEmail" class="form-control" disabled />
+                        <span class=" text-danger"> Norėdami pakeisti el. paštą prašome <a asp-controller="EmailMessages" asp-action="Create">susisiekti</a> su mumis.</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="AppUser.PVM"></label>
+                        <input asp-for="AppUser.PVM" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="AppUser.BuisnessName"></label>
+                        <input asp-for="AppUser.BuisnessName" class="form-control" disabled />
+                        <span class=" text-danger"> Norėdami pakeisti įmonės pavadinimą prašome <a asp-controller="EmailMessages" asp-action="Create">susisiekti</a> su mumis.</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.BuisnesAdressCity"></label>
+                        <input asp-for="AppUser.BuisnesAdressCity" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.BuisnesAdressStreet"></label>
+                        <input asp-for="AppUser.BuisnesAdressStreet" class="form-control" />
+                    </div>
+                    <div class="form-group" hidden>
+                        <label asp-for="AppUser.BuisnessCode"></label>
+                        <input asp-for="AppUser.BuisnessCode" class="form-control" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="py-4">
+            <button id="update-profile-button" type="submit" class="btn btn-danger btn-block">Atnaujinti</button>
+        </div>
+    }
+    else
+    {
+        <div class="container-fluid ">
+            <div class="col ">
+                <h1 class="text-danger text-uppercase font-weight-bold font-italic">
+                    <strong>Kol kas tuščia <i class="far fa-frown 7x text-danger text font-weight-bold"></i></strong>
+                    <small class="text-secondary">Prašome:</small>
+                </h1>
+                <p>
+                    Užpildykite vartotojo duomenų anketą. Duomenys reikalingi <a asp-controller="Home" asp-action="Privacy"> šiesms tikslams</a>
+
+                </p>
+                <a class="btn btn-outline-success btn-lg m-2 text-capitalize" asp-area="" asp-controller="AppUsers" asp-action="Create">Pildom!</a>
+                <a class="btn btn-outline-danger btn-lg m-2 text-capitalize" asp-area="" asp-controller="Home" asp-action="Index">Nenoriu!</a>
+            </div>
+        </div>
+    }
+
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

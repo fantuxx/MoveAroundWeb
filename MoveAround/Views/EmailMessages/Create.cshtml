@@ -1,0 +1,47 @@
+﻿@model MoveAround.Models.EmailMessage
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AccManagement.cshtml";
+}
+
+<h2 class="h1-responsive font-weight-bold text-center my-4 pt-4">Parašykite mums</h2>
+
+<p class="text-center w-responsive mx-auto mb-">
+    Jeigu turite kokių klausimų ar pastebėjimų prašome nesikuklinti ir mums parašyti
+</p>
+<hr />
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <textarea asp-for="Message" class="form-control align-text-top"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Siųsti" class="btn btn-danger btn-block" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+

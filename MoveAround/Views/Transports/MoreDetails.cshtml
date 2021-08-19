@@ -1,0 +1,233 @@
+﻿@model MoveAround.Models.Transport
+
+@{
+    ViewData["Title"] = "Informacija apie Transportą";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="container-fluid bg-tamsus py-2 my-2">
+    <h2 class=" text-light text-center">Informacija apie Transportą</h2>
+</div>
+
+
+<div class="container-fluid">
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.AccountNumber)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FullFromLocation)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FullFromLocation)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromCountry)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromCountry)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromDistrict)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromDistrict)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromCity)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromCity)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromStreet)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromStreet)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFronNumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFronNumber)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromZipCode)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromZipCode)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromLatitude)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromLatitude)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromLongitude)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromLongitude)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FullToLocation)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FullToLocation)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToCountry)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToCountry)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToDistrict)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToDistrict)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToCity)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToCity)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToStreet)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToStreet)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationFromNumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationFromNumber)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToZipCode)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToZipCode)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToLatitude)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToLatitude)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LocationToLongitude)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LocationToLongitude)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.GalimaNuoData)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.GalimaNuoData)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.TransportoSkaicius)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TransportoSkaicius)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PakrovimoTipas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PakrovimoTipas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.SunkvezimioTipas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.SunkvezimioTipas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ArGalimas)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ArGalimas)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Svoris)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Svoris)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Turis)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Turis)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Ilgis)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Ilgis)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PaleciuSk)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaleciuSk)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Temperatura)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.PapildomaInfo)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PapildomaInfo)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Kaina)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Kaina)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.BuisnessName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.BuisnessName)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.UserEmail)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.UserEmail)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.BuisnessEmail)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.BuisnessEmail)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Uzsakovas.PhoneNumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Uzsakovas.PhoneNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-danger btn-block" asp-action="Edit" asp-route-id="@Model.TransportId">Redaguoti įrašą</a>
+    <a class="btn btn-dark btn-block mb-2" asp-action="Index">Atgal į sarašą</a>
+    <a class="btn btn-dark btn-block mb-2" asp-action="All">Visi Užsakymai</a>
+</div>

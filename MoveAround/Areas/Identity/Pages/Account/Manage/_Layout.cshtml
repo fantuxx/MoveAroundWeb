@@ -1,0 +1,25 @@
+﻿@{
+
+    Layout = "_AccManagement";
+
+}
+
+
+
+<div>
+    <h3 class="text-secondary pt-3 text-uppercase text-center">Keisti vartotojo duomenis</h3>
+    <div class="title-underline bg-danger w-100"></div>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
